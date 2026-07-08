@@ -32,6 +32,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://satyasri.dev"),
   title: "Satya Sri — Senior Frontend Engineer",
   description: "Portfolio of Satya Sri, Senior Frontend Engineer",
   icons: {
