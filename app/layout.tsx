@@ -37,6 +37,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  openGraph: {
+    title: "Satya Sri — Senior Frontend Engineer",
+    description: "Portfolio of Satya Sri, Senior Frontend Engineer",
+    url: "https://satyasri.dev",
+    siteName: "Satya Sri",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
