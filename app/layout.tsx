@@ -34,6 +34,9 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Satya Sri — Senior Frontend Engineer",
   description: "Portfolio of Satya Sri, Senior Frontend Engineer",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
