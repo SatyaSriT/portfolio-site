@@ -4,7 +4,13 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-[rgba(251,243,232,1)] overflow-hidden">
       {/* Lavender bottom strip */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 md:h-16 bg-[#D8C9DE]" />
+      <Image
+        src="/bottom-strip.svg"
+        alt=""
+        width={1440}
+        height={64}
+        className="absolute bottom-0 left-0 w-full h-auto"
+      />
 
       {/* Narrow lavender left strip with wavy right edge */}
       <Image
