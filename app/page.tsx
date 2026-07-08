@@ -2,64 +2,130 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="relative min-h-screen bg-[rgba(251,243,232,1)] overflow-hidden">
+      {/* Lavender bottom strip */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#D8C9DE]" />
+
+      {/* Narrow lavender left strip with wavy right edge */}
+      <Image
+        src="/left-strip.svg"
+        alt=""
+        width={110}
+        height={900}
+        className="absolute inset-0 h-full w-auto"
+        style={{ left: 0, top: 0 }}
+      />
+
+      {/* Illustration + decorations — absolutely positioned, left-aligned */}
+      <div className="absolute left-0 bottom-0 w-[44%] h-full">
+        {/* Smiley */}
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
+          src="/smiley.png"
+          alt="smiley"
           width={100}
-          height={20}
+          height={100}
+          className="absolute z-20"
+          style={{ left: "12%", top: "30%" }}
+        />
+
+        {/* Navy sparkle — below smiley, slightly overlapping it */}
+        <Image
+          src="/stars.png"
+          alt="navy sparkle"
+          width={90}
+          height={145}
+          className="absolute z-20"
+          style={{ left: "20%", top: "45%" }}
+        />
+
+        {/* Portrait illustration — bottom-aligned, fills most of height */}
+        <Image
+          src="/illustration.svg"
+          alt="Satya Sri illustration"
+          width={500}
+          height={680}
+          className="absolute bottom-0 z-10 object-contain"
+          style={{ left: "10%" }}
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+
+        {/* Yellow sparkle — right of face in gap before text, at glasses level */}
+        <Image
+          src="/yellow_stars.png"
+          alt="yellow sparkle"
+          width={85}
+          height={136}
+          className="absolute z-20"
+          style={{ left: "68%", top: "40%" }}
+        />
+      </div>
+
+      {/* Text content — right side */}
+      <div className="relative flex items-start min-h-screen pt-[22%]">
+        <div className="ml-[46%] pr-8">
+          <p
+            className="text-[#1B3A6B] mb-1"
+            style={{
+              fontFamily: "var(--font-fredoka)",
+              fontWeight: 400,
+              fontSize: "32px",
+              lineHeight: "100%",
+              letterSpacing: "-0.04em",
+            }}
+          >Hello !</p>
+          <h1
+            className="text-[#1B3A6B]"
+            style={{
+              fontFamily: "var(--font-delicious-handrawn)",
+              fontWeight: 400,
+              fontSize: "98px",
+              lineHeight: "100%",
+              letterSpacing: "-0.04em",
+            }}
+          >
+            I&apos;m Satya Sri
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          {/* Brush stroke underline under name */}
+          <Image
+            src="/name-stroke.svg"
+            alt=""
+            width={420}
+            height={18}
+            className="w-full max-w-[420px] mb-3"
+            style={{ marginTop: "-6px" }}
+          />
+
+          <h2
+            className="text-[#1B3A6B] mb-5"
+            style={{
+              fontFamily: "var(--font-fredoka)",
+              fontWeight: 400,
+              fontSize: "32px",
+              lineHeight: "100%",
+              letterSpacing: "-0.04em",
+            }}
+          >
+            Senior Frontend Engineer
+          </h2>
+          <p
+            className="text-[#1B3A6B] max-w-md"
+            style={{
+              fontFamily: "var(--font-sora)",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "140%",
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Building scalable, accessible, and delightful web experiences.
+            Currently at{" "}
+            <span className="bg-[#F5C842] px-1 rounded-sm font-medium">
+              HashedIn by Deloitte 🔧
+            </span>, formerly AntStack 🐜.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
