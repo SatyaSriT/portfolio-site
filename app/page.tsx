@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-[rgba(251,243,232,1)] overflow-hidden">
       {/* Lavender bottom strip */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#D8C9DE]" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 md:h-16 bg-[#D8C9DE]" />
 
       {/* Narrow lavender left strip with wavy right edge */}
       <Image
@@ -12,13 +12,12 @@ export default function Home() {
         alt=""
         width={110}
         height={900}
-        className="absolute inset-0 h-full w-auto"
+        className="absolute inset-0 h-full w-auto z-10"
         style={{ left: 0, top: 0 }}
       />
 
-      {/* Illustration + decorations — absolutely positioned, left-aligned */}
-      <div className="absolute left-0 bottom-0 w-[44%] h-full">
-        {/* Smiley */}
+      {/* Desktop illustration — hidden on mobile */}
+      <div className="hidden md:block absolute left-0 bottom-0 w-[44%] h-full z-10">
         <Image
           src="/smiley.png"
           alt="smiley"
@@ -27,8 +26,6 @@ export default function Home() {
           className="absolute z-20"
           style={{ left: "12%", top: "30%" }}
         />
-
-        {/* Navy sparkle — below smiley, slightly overlapping it */}
         <Image
           src="/stars.png"
           alt="navy sparkle"
@@ -37,8 +34,6 @@ export default function Home() {
           className="absolute z-20"
           style={{ left: "20%", top: "45%" }}
         />
-
-        {/* Portrait illustration — bottom-aligned, fills most of height */}
         <Image
           src="/illustration.svg"
           alt="Satya Sri illustration"
@@ -48,8 +43,6 @@ export default function Home() {
           style={{ left: "10%" }}
           priority
         />
-
-        {/* Yellow sparkle — right of face in gap before text, at glasses level */}
         <Image
           src="/yellow_stars.png"
           alt="yellow sparkle"
@@ -60,25 +53,29 @@ export default function Home() {
         />
       </div>
 
-      {/* Text content — right side */}
-      <div className="relative flex items-start min-h-screen pt-[22%]">
-        <div className="ml-[46%] pr-8">
+      {/* Layout wrapper — column on mobile, block on desktop */}
+      <div className="relative z-20 flex flex-col min-h-screen md:block">
+
+        {/* Text content */}
+        <div className="pl-[110px] pr-6 pt-12 pb-6 md:pt-[22%] md:ml-[46%] md:pl-0 md:pr-8">
           <p
             className="text-[#1B3A6B] mb-1"
             style={{
               fontFamily: "var(--font-fredoka)",
               fontWeight: 400,
-              fontSize: "32px",
+              fontSize: "clamp(22px, 5vw, 32px)",
               lineHeight: "100%",
               letterSpacing: "-0.04em",
             }}
-          >Hello !</p>
+          >
+            Hello !
+          </p>
           <h1
             className="text-[#1B3A6B]"
             style={{
               fontFamily: "var(--font-delicious-handrawn)",
               fontWeight: 400,
-              fontSize: "98px",
+              fontSize: "clamp(48px, 11vw, 98px)",
               lineHeight: "100%",
               letterSpacing: "-0.04em",
             }}
@@ -92,16 +89,16 @@ export default function Home() {
             alt=""
             width={420}
             height={18}
-            className="w-full max-w-[420px] mb-3"
-            style={{ marginTop: "-6px" }}
+            className="w-full max-w-[200px] md:max-w-[420px] mb-2 md:mb-3"
+            style={{ marginTop: "-4px" }}
           />
 
           <h2
-            className="text-[#1B3A6B] mb-5"
+            className="text-[#1B3A6B] mb-4 md:mb-5"
             style={{
               fontFamily: "var(--font-fredoka)",
               fontWeight: 400,
-              fontSize: "32px",
+              fontSize: "clamp(20px, 5vw, 32px)",
               lineHeight: "100%",
               letterSpacing: "-0.04em",
             }}
@@ -109,11 +106,11 @@ export default function Home() {
             Senior Frontend Engineer
           </h2>
           <p
-            className="text-[#1B3A6B] max-w-md"
+            className="text-[#1B3A6B] max-w-[260px] md:max-w-md"
             style={{
               fontFamily: "var(--font-sora)",
               fontWeight: 400,
-              fontSize: "18px",
+              fontSize: "clamp(14px, 3.5vw, 18px)",
               lineHeight: "140%",
               letterSpacing: "-0.02em",
             }}
@@ -124,6 +121,17 @@ export default function Home() {
               HashedIn by Deloitte 🔧
             </span>, formerly AntStack 🐜.
           </p>
+        </div>
+
+        {/* Mobile illustration — fills remaining space below text */}
+        <div className="md:hidden flex-1 relative min-h-[44vh] pb-12">
+          <Image
+            src="/illustration.svg"
+            alt="Satya Sri illustration"
+            fill
+            className="object-contain object-bottom"
+            priority
+          />
         </div>
       </div>
     </main>
